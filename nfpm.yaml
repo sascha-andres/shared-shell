@@ -19,5 +19,5 @@ files:
   ./logger.sh: "/opt/sascha-andres/shell/logger.sh"
   ./execute.sh: "/opt/sascha-andres/shell/execute.sh"
   ./exiting.sh: "/opt/sascha-andres/shell/exiting.sh"
-  ./exiting.sh: "/opt/sascha-andres/shell/module.sh"
+  ./module.sh: "/opt/sascha-andres/shell/module.sh"
 config_files:
