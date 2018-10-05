@@ -1,7 +1,7 @@
 name: "shared-shell"
 arch: "amd64"
 platform: "linux"
-version: "0.4.2"
+version: "0.4.3"
 section: "default"
 priority: "extra"
 provides:
@@ -20,4 +20,5 @@ files:
   ./execute.sh: "/opt/sascha-andres/shell/execute.sh"
   ./exiting.sh: "/opt/sascha-andres/shell/exiting.sh"
   ./module.sh: "/opt/sascha-andres/shell/module.sh"
+  ./git.sh: "/opt/sascha-andres/shell/git.sh"
 config_files:

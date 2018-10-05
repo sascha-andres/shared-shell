@@ -4,6 +4,7 @@
 
 |Version|Description|
 |---|---|
+|0.4.3|add git functions|
 |0.4.1|install location|
 | |name config.sh module.sh and move to install location|
 |0.4.0|no-exit-immediatly|
