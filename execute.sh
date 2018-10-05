@@ -9,6 +9,7 @@ if [ "x0" != "x${shared_execute_sh_loaded}" ]; then
     echo "--> execute.sh already included"
   fi
 else
+  shared_execute_sh_loaded=1
   shared_exec_err_ocurred=${shared_exec_err_ocurred:-0}
 
   pkg::import logger
