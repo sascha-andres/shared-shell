@@ -2,6 +2,8 @@
 
 set -q shared_module_loaded; or set -g shared_module_loaded 0
 
+set -g shared_loaded_modules
+
 if math $shared_module_loaded == 0 > /dev/null
   # set -u equivalent
 
@@ -20,26 +22,24 @@ if math $shared_module_loaded == 0 > /dev/null
   #   set -o pipefail
   # fi
 
-  set -g shared_loaded_modules
-
   function pkg_module_loaded -d "list loaded modules"
     if count $argv > /dev/null
-      set value $argv[0]
+      set value $argv
       for mod in $shared_loaded_modules
-        if "x$mod" == "x$value"
+        if [ "$mod" = "$value" ]
           return 0
         end
       end
     end
-    return 2
+    return 1
   end
 
   function pkg_import -d "import a module"
     pkg_module_loaded $argv
     if math $status != 0 > /dev/null
       if test -n $argv
-        if test -e "$shared_install_location/$module.fish"
-          set -g shared_loaded_modules=($shared_loaded_modules $argv)
+        if test -e "$shared_install_location/$argv.fish"
+          set -g shared_loaded_modules $shared_loaded_modules $argv
           . "$shared_install_location/$argv.fish"
           return 0
         else
@@ -49,7 +49,7 @@ if math $shared_module_loaded == 0 > /dev/null
         echo "!! you have to give a module !!"
       end
     end
-    return 2
+    return 1
   end
 
 end

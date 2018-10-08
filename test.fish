@@ -11,7 +11,29 @@ end
 
 source "$shared_install_location/module.fish"
 
+pkg_module_loaded "logger"
+
+if [ $status -eq 0 ]
+  echo "Logger is loaded: y"
+else
+  echo "Logger is loaded: n"
+end
+
 pkg_import logger
+
+logger_header "logger"
+
+pkg_module_loaded "logger"
+if [ $status -eq 0 ]
+  logger_write "Logger is loaded: y"
+else
+  logger_write "Logger is loaded: n"
+end
+
+logger_log "log"
+logger_warn "warn"
+logger_error "error"
+logger_writealways "writealways"
 
 # pkg::import logger
 # pkg::import execute
