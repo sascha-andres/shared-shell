@@ -17,6 +17,7 @@ license: "Apache 2"
 bindir: "/opt/sascha-andres/shell"
 files:
   ./logger.sh: "/opt/sascha-andres/shell/logger.sh"
+  ./logger.fish: "/opt/sascha-andres/shell/logger.fish"
   ./execute.sh: "/opt/sascha-andres/shell/execute.sh"
   ./exiting.sh: "/opt/sascha-andres/shell/exiting.sh"
   ./module.sh: "/opt/sascha-andres/shell/module.sh"
