@@ -1,14 +1,14 @@
 #! /usr/bin/env fish
 
 set -q shared_module_loaded; or set -g shared_module_loaded 0
+set -q shared_debug; or set -g shared_debug 0
+set -q shared_install_location; or set -g shared_install_location "/opt/sascha-andres/shell"
 
 set -g shared_loaded_modules
 
 if math $shared_module_loaded == 0 > /dev/null
   # set -u equivalent
 
-  set -q shared_install_location; or set -g shared_install_location "/opt/sascha-andres/shell"
-  set -q shared_debug; or set -g shared_debug 0
   # shared_pipefail=${shared_pipefail:-1}
   # shared_exit_immediatly=${shared_exit_immediatly:-1}
 

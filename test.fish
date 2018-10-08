@@ -20,6 +20,7 @@ else
 end
 
 pkg_import logger
+pkg_import exiting
 
 logger_header "logger"
 
@@ -35,6 +36,9 @@ logger_warn "warn"
 logger_error "error"
 logger_writealways "writealways"
 
+logger_header "exiting"
+exiting_quit 0
+
 # pkg::import logger
 # pkg::import execute
 # pkg::import exiting
@@ -42,15 +46,6 @@ logger_writealways "writealways"
 # 
 # git_from=a69824f
 # git_to=7a24809
-# 
-# logger::header "loader"
-# logger::write "Logger is loaded: $(pkg::module_loaded logger)"
-# 
-# logger::header "header"
-# logger::log "log"
-# logger::warn "warn"
-# logger::error "error"
-# logger::writealways "writealways"
 # 
 # logger::header "execute"
 # execute::exec_and_continue_on_ok "echo 'a'"
@@ -80,6 +75,3 @@ logger_writealways "writealways"
 # refname="develop"
 # git::set_new_commits
 # logger::writealways "git_result_new_commits: ${git_result_new_commits}"
-# 
-# logger::header "exiting"
-# exiting::quit 0
