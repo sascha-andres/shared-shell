@@ -20,5 +20,6 @@ files:
   ./execute.sh: "/opt/sascha-andres/shell/execute.sh"
   ./exiting.sh: "/opt/sascha-andres/shell/exiting.sh"
   ./module.sh: "/opt/sascha-andres/shell/module.sh"
+  ./module.fish: "/opt/sascha-andres/shell/module.fish"
   ./git.sh: "/opt/sascha-andres/shell/git.sh"
 config_files:

@@ -22,7 +22,7 @@ if math $shared_module_loaded == 0 > /dev/null
 
   set -g shared_loaded_modules
 
-  function shared_module_loaded -d "list loaded modules"
+  function pkg_module_loaded -d "list loaded modules"
     if count $argv > /dev/null
       set value $argv[0]
       for mod in $shared_loaded_modules
@@ -34,8 +34,8 @@ if math $shared_module_loaded == 0 > /dev/null
     return 2
   end
 
-  function shared_import -d "import a module"
-    shared_module_loaded $argv
+  function pkg_import -d "import a module"
+    pkg_module_loaded $argv
     if math $status != 0 > /dev/null
       if test -n $argv
         if test -e "$shared_install_location/$module.fish"
