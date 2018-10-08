@@ -2,7 +2,7 @@
 
 set -q shared_debug; or set -g shared_debug 0
 
-set -q shared_exiting_sh_loaded; or set shared_exiting_sh_loaded 0
+set -q shared_exiting_sh_loaded; or set -g shared_exiting_sh_loaded 0
 
 if [ 1 -eq $shared_exiting_sh_loaded ]
   if [ 1 -eq $shared_debug ]
@@ -11,7 +11,7 @@ if [ 1 -eq $shared_exiting_sh_loaded ]
 else
   set -g shared_exiting_sh_loaded 1
   
-  set -q shared_exec_err_ocurred; or set shared_exec_err_ocurred 0
+  set -q shared_exec_err_ocurred; or set -g shared_exec_err_ocurred 0
 
   pkg_import logger
 
@@ -29,9 +29,9 @@ else
   end
  
   function exiting_check_and_exit --description "exit for result"
-    if [ $argv[0] -ne 0 ]
-      logger_error "Step failed ($argv[1]). See log"
-      exiting_quit $argv[0]
+    if [ 0 -ne $argv[1] ]
+      logger_error "Step failed ($argv[2]). See log"
+      exiting_quit $argv[1]
     end
   end
 

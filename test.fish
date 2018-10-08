@@ -21,6 +21,7 @@ end
 
 pkg_import logger
 pkg_import exiting
+pkg_import execute
 
 logger_header "logger"
 
@@ -35,6 +36,9 @@ logger_log "log"
 logger_warn "warn"
 logger_error "error"
 logger_writealways "writealways"
+
+logger_header "execute"
+execute_exec_and_continue_on_ok "echo 'a'"
 
 logger_header "exiting"
 exiting_quit 0
