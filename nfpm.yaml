@@ -1,7 +1,7 @@
 name: "shared-shell"
 arch: "amd64"
 platform: "linux"
-version: "0.4.3"
+version: "0.4.4"
 section: "default"
 priority: "extra"
 provides:
@@ -17,8 +17,12 @@ license: "Apache 2"
 bindir: "/opt/sascha-andres/shell"
 files:
   ./logger.sh: "/opt/sascha-andres/shell/logger.sh"
+  ./logger.fish: "/opt/sascha-andres/shell/logger.fish"
   ./execute.sh: "/opt/sascha-andres/shell/execute.sh"
+  ./execute.fish: "/opt/sascha-andres/shell/execute.fish"
   ./exiting.sh: "/opt/sascha-andres/shell/exiting.sh"
+  ./exiting.fish: "/opt/sascha-andres/shell/exiting.fish"
   ./module.sh: "/opt/sascha-andres/shell/module.sh"
+  ./module.fish: "/opt/sascha-andres/shell/module.fish"
   ./git.sh: "/opt/sascha-andres/shell/git.sh"
 config_files:
