@@ -2,12 +2,12 @@
 
 set -q shared_logger_sh_loaded; or set -g shared_logger_sh_loaded 0
 
-if math 1 == $shared_logger_sh_loaded > /dev/null
+if test 1 -eq $shared_logger_sh_loaded
   # if [ "x1" == "x${shared_debug}" ]; then
     echo "logger.sh already included"
   # fi
 else
-  set shared_logger_sh_loaded 1
+  set -g shared_logger_sh_loaded 1
 
   set -q shared_logger_tag; or set -g shared_logger_tag
   set -q shared_verbose; or set -g shared_verbose 1
@@ -22,11 +22,11 @@ else
 
   function logger_write -d "write to stdout"
     if test -z $shared_logger_tag
-      if math 1 == $shared_verbose > /dev/null
+      if test 1 -eq $shared_verbose > /dev/null
         echo "$argv"
       end
     else
-      if math 1 == $shared_verbose > /dev/null
+      if test 1 -eq $shared_verbose > /dev/null
         echo $content
       end
       echo $content | logger -t "$shared_logger_tag"

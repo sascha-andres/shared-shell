@@ -6,7 +6,7 @@ set -q shared_install_location; or set -g shared_install_location "/opt/sascha-a
 
 set -g shared_loaded_modules
 
-if math $shared_module_loaded == 0 > /dev/null
+if test $shared_module_loaded -eq 0
   # set -u equivalent
 
   # shared_pipefail=${shared_pipefail:-1}
@@ -23,7 +23,7 @@ if math $shared_module_loaded == 0 > /dev/null
   # fi
 
   function pkg_module_loaded -d "list loaded modules"
-    if count $argv > /dev/null
+    if count $argv
       set value $argv
       for mod in $shared_loaded_modules
         if [ "$mod" = "$value" ]
@@ -36,7 +36,7 @@ if math $shared_module_loaded == 0 > /dev/null
 
   function pkg_import -d "import a module"
     pkg_module_loaded $argv
-    if math $status != 0 > /dev/null
+    if test $status -ne 0
       if test -n $argv
         if test -e "$shared_install_location/$argv.fish"
           set -g shared_loaded_modules $shared_loaded_modules $argv

@@ -4,8 +4,8 @@ set -q shared_debug; or set -g shared_debug 0
 
 set -q shared_exiting_sh_loaded; or set -g shared_exiting_sh_loaded 0
 
-if [ 1 -eq $shared_exiting_sh_loaded ]
-  if [ 1 -eq $shared_debug ]
+if test 1 -eq $shared_exiting_sh_loaded
+  if test 1 -eq $shared_debug
     echo "--> exiting.sh already included"
   end
 else
@@ -22,14 +22,14 @@ else
   end
 
   function exiting_signalled_exit --description "exit if error occurred"
-    if [ shared_exec_err_ocurred -ne 1 ]
-      exiting::quit $shared_exec_err_ocurred
+    if test shared_exec_err_ocurred -ne 1
+      exiting_quit $shared_exec_err_ocurred
     end
-    exiting::quit 0
+    exiting_quit 0
   end
  
   function exiting_check_and_exit --description "exit for result"
-    if [ 0 -ne $argv[1] ]
+    if test 0 -ne $argv[1]
       logger_error "Step failed ($argv[2]). See log"
       exiting_quit $argv[1]
     end
