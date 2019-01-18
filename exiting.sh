@@ -32,7 +32,7 @@ else
   function exiting::check_and_exit {
     local result=${1:-1}
     local message=${2:-"wrong call; defaulting to exit"}
-    if [ "${result}" -gt 0 ]; then
+    if [ "${result}" - 0 ]; then
       logger::error "Step failed (${message}). See log"
       exiting::quit "${result}"
     fi
