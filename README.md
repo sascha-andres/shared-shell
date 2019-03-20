@@ -4,6 +4,7 @@
 
 |Version|Description|
 |---|---|
+|0.4.8|fix for unwanted fish output|
 |0.4.6-1|fix for nfpm config|
 |0.4.6|Fish Shell v3|
 |0.4.3|add git functions|
