@@ -1,7 +1,5 @@
 #!/usr/bin/env fish
 
-set -q shared_logger_sh_loaded; or set -g shared_logger_sh_loaded 0
-
 if test 1 -eq $shared_logger_sh_loaded
   # if [ "x1" == "x${shared_debug}" ]; then
     echo "logger.sh already included"
