@@ -35,7 +35,7 @@ if test $shared_module_loaded -eq 0
   end
 
   function pkg_import -d "import a module"
-    pkg_module_loaded $argv
+    pkg_module_loaded $argv > /dev/null
     if test $status -ne 0
       if test -n $argv
         if test -e "$shared_install_location/$argv.fish"
